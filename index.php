@@ -22,7 +22,7 @@ if (isset($_POST['submit2'])) {
     $stud_name = $_POST['stud_name'];
     $stud_family = $_POST['stud_family'];
     $stud_ave = $_POST['stud_ave'];
-    $ins_sql = "INSERT INTO student(stud_id,class_id,name,family,ave)  VALUES (stud_id,'$classid','$stud_name','$stud_family','$stud_ave')";
+    $ins_sql = "INSERT INTO student(stud_id,class_id,name,family,ave)  VALUES ($stud_id,'$classid','$stud_name','$stud_family','$stud_ave')";
     $ins_sql_pre = $db->prepare($ins_sql);
     $ins_sql_pre->execute();
 }
@@ -89,7 +89,8 @@ if (isset($_POST['submit2'])) {
             </form>
             <table border="1">
                 <tr>
-
+<td>stud id</td>
+                    <td>class id</td>
                     <td>name</td>
                     <td>family</td>
                     <td>average</td>
@@ -107,6 +108,8 @@ if (isset($_POST['submit2'])) {
 
                     echo "
     <tr>
+     <td>" . $row['class_id'] . "</td>
+      <td>" . $row['stud_id'] . "</td>
     <td>" . $row['name'] . "</td>
     <td>" . $row['family'] . "</td>
     <td>" . $row['ave'] . "</td>
