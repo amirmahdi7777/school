@@ -124,5 +124,20 @@ if (isset($_POST['submit2'])) {
         </div>
     </div>
 </div>
+<div id="show_list">
+    <form method="post">
+        <label>class name</label><br/>
+        <select name="select1" id="select1">
+            <?php
+            include "connection.php";
+            $sql_option="SELECT * FORM class";
+            $sql_option_pre=$db->prepare($sql_option);
+            $sql_option_pre->execute();
+            while ($rows=$sql_option_pre->fetch())
+            ?>
+        </select>
+
+    </form>
+</div>
 </body>
 </html>
