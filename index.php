@@ -34,10 +34,10 @@ if (isset($_POST['submit2'])) {
                 <fieldset>
                     <legend>Class</legend>
                     <label>class id:</label>
-                    <input type="text" name="txt_classid"/>
+                    <input type="text" name="txt_classid"/><br/>
                     <label>class name:</label>
                     <input type="text" name="txt_class"/>
-                    <input type="submit" name="submit1" value="inser-class"/>
+                    <input type="submit" name="submit1" value="inser-class"/><br/>
                 </fieldset>
             </form>
             <table border="1">
