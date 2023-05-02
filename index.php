@@ -130,11 +130,11 @@ if (isset($_POST['submit2'])) {
         <select name="select1" id="select1">
             <?php
             include "connection.php";
-            $sql_option="SELECT * FORM class";
+            $sql_option=" SELECT * FROM class";
             $sql_option_pre=$db->prepare($sql_option);
             $sql_option_pre->execute();
-            while ($rows=$sql_option_pre->fetch()){
-                echo "option value='".$rows['class_id']."'>".$rows['class_name']."</option>";
+            while ($rows=$sql_option_pre->fetch(PDO::FETCH_ASSOC)){
+                echo "<option value='".$rows['class_id']."'>".$rows['class_name']."</option>";
             }
             ?>
         </select>

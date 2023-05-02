@@ -21,7 +21,8 @@ if (isset($_GET['id']) && isset($_GET['page']) ) {
             if (isset($_POST['submit1'])) {
 
                 $class_name = $_POST['txt_class'];
-                $query = "UPDATE class SET class_name='" . $class_name . "' WHERE class_id=" . $id;
+                $class_id = $_POST['txt_class1'];
+                $query = "UPDATE class SET class_name='" . $class_name . "', class_id='" . $class_id . "' WHERE class_id=" . $id;
                 $del = $db->prepare($query);
                 $del->execute();
                 header("location:index.php");
@@ -32,6 +33,8 @@ if (isset($_GET['id']) && isset($_GET['page']) ) {
 <legend>Class</legend>
 <lable>class name</lable>
 <input type="text" name="txt_class" value="' . $row['class_name'] . '"/>
+<lable>class id</lable>
+<input type="text" name="txt_class1" value="' . $row['class_id'] . '"/>
 <input type="submit" name="submit1" value="edit-class"/>
 </fieldest>
 </form>
@@ -47,7 +50,9 @@ break;
                 $name = $_POST['stud_name'];
                 $family = $_POST['stud_family'];
                 $ave = $_POST['stud_ave'];
-                $query = "UPDATE student SET name='".$name."'".",family='" . $family . "'" . ",ave=" . $ave . " WHERE stud_id=" . $id;
+                $studid = $_POST['stud_id'];
+                $classid = $_POST['class_id'];
+                $query = "UPDATE student SET name='".$name."'".",family='" . $family . "'" . ",ave=" . $ave . ",stud_id='" . $studid . "'" . " ,class_id='" . $classid . "'" . " WHERE stud_id=" . $id;
                 $edit = $db->prepare($query);
                 $edit->execute();
                 header("location:index.php");
@@ -63,6 +68,10 @@ break;
 <input type="text" name="stud_family" value="' . $row['family'] . '"/></br>
 <lable>average</lable></br>
 <input type="text" name="stud_ave" value="' . $row['ave'] . '"/></br>
+<lable>studid</lable></br>
+<input type="text" name="stud_id" value="' . $row['stud_id'] . '"/></br>
+<lable>classid</lable></br>
+<input type="text" name="class_id" value="' . $row['class_id'] . '"/></br>
 <input type="submit" name="submit2" value="edit-student"/>
 </fieldest>
 </form>
