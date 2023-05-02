@@ -138,9 +138,36 @@ if (isset($_POST['submit2'])) {
             }
             ?>
         </select>
-        <input type="">
+        <input type="submit" name="sub" value="select">
 
     </form>
+    <table>
+        <tr>
+            <td> name </td>
+            <td> family </td>
+            <td> ave </td>
+        </tr>
+        <?php
+        include "connection.php";
+        if (isset($_POST['sub'])){
+            echo "<script>alert('ok');</script>";
+            $id=$_POST['select1'];
+            $sql_show="select * FROM student WHERE class_id=".$id;
+            $sql_show_pre=$db->prepare($sql_show);
+            $sql_show_pre->execute();
+            while ($row=$sql_show_pre->fetch(PDO::FETCH_ASSOC)){
+                echo '
+                 <tr>
+     <td>' . $row['name'] . '</td>
+      <td>' . $row['family'] . '</td>
+    <td>' . $row['ave'] . '</td>
+    </tr>
+                ';
+
+            }
+        }
+        ?>
+    </table>
 </div>
 </body>
 </html>
