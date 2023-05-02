@@ -133,11 +133,34 @@ if (isset($_POST['submit2'])) {
             $sql_option="SELECT * FORM class";
             $sql_option_pre=$db->prepare($sql_option);
             $sql_option_pre->execute();
-            while ($rows=$sql_option_pre->fetch())
+            while ($rows=$sql_option_pre->fetch()){
+                echo "option value='".$rows['class_id']."'>".$rows['class_name']."</option>";
+            }
             ?>
         </select>
+        <input type="">
 
     </form>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
